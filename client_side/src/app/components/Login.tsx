@@ -1,9 +1,17 @@
 'use client';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
+import axios from 'axios';
 
 export default function Login() {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+  const onFinish = async (values: any) => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/login', values);
+      message.success('Login Successful!');
+      console.log('Response:', response.data);
+    } catch (error) {
+      message.error('Login Failed!');
+      console.error('Error:', error);
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
