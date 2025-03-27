@@ -57,3 +57,40 @@
     margin-top: 20px;
     text-align: center;
   }
+
+
+  /* cart css */
+
+  .cart-page {
+    padding: 20px;
+  }
+  
+  .cart-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .cart-image {
+    width: 80px;
+    height: auto;
+  }
+  
+  .cart-actions {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .quantity {
+    width: 32px;
+    text-align: center;
+  }

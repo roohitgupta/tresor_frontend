@@ -4,15 +4,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Col, Row, Input, Pagination, Spin, Button } from 'antd';
 import './Style.css';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../redux/cartSlice';
 
 const { Search } = Input;
 
-export default function ProductList() {
+export default function ProductPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [current, setCurrent] = useState(1);
   const [pageSize, setPageSize] = useState(8);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     fetchProducts();
@@ -38,7 +43,8 @@ export default function ProductList() {
     setCurrent(1);
   };
 
-  const addToCart = (product : any) => {
+  const handleAddToCart = (product: any) => {
+    dispatch(addProduct(product));
     console.log('Added to cart:', product);
   };
 
@@ -67,7 +73,7 @@ export default function ProductList() {
                     description={`$${product.price}`}
                   />
                   <p className="product-description">{product.description}</p>
-                  <Button type="primary" onClick={() => addToCart(product)}>
+                  <Button type="primary" onClick={() => handleAddToCart(product)}>
                     Add to Cart
                   </Button>
                 </Card>

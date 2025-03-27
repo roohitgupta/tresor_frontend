@@ -17,7 +17,9 @@ const Navbar = () => {
         <Link href="/options">Options</Link>
       </div>
       <div className="nav-icons">
-        <span className="icon">🛒</span>
+        <Link href="/cart">
+          <span className="icon">🛒</span>
+        </Link>
         <span className="icon">🔓</span>
       </div>
     </Header>
