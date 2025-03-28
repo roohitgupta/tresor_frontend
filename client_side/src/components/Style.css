@@ -30,6 +30,22 @@
   cursor: pointer;
 }
 
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.icon-wrapper:hover {
+  background-color: #f0f0f0; /* Optional hover effect */
+  border-radius: 50%;
+}
+
 /* product page css  */
   .product-list {
     padding: 20px;

@@ -24,15 +24,15 @@ export default function CartPage() {
     localStorage.setItem('cart', JSON.stringify(products));
   }, [products]);
 
-  const handleRemove = (id: number) => {
-    dispatch(removeProduct(id));
+  const handleRemove = (_id: string) => {
+    dispatch(removeProduct(_id));
   };
 
-  const handleChangeQuantity = (id: number, increment: boolean) => {
-    const product = products.find(p => p.id === id);
+  const handleChangeQuantity = (_id: string, increment: boolean) => {
+    const product = products.find(p => p._id === _id);
     if (product) {
       const newQuantity = increment ? product.quantity + 1 : Math.max(1, product.quantity - 1);
-      dispatch(changeQuantity({ id, quantity: newQuantity }));
+      dispatch(changeQuantity({ _id, quantity: newQuantity }));
     }
   };
 
@@ -43,10 +43,10 @@ export default function CartPage() {
         <Text>Your cart is empty</Text>
       ) : (
         products.map((product) => (
-          <Card key={product.id} className="cart-item">
+          <Card key={product._id} className="cart-item">
             <Row align="middle">
               <Col span={4}>
-                <img src={product.image} alt={product.title} className="cart-image" />
+                <img src={product.image || 'https://via.placeholder.com/100'} alt={product.title} className="cart-image" />
               </Col>
               <Col span={14}>
                 <Title level={4}>{product.title}</Title>
@@ -54,12 +54,12 @@ export default function CartPage() {
               </Col>
               <Col span={6} className="cart-actions">
                 <div className="quantity-controls">
-                  <Button onClick={() => handleChangeQuantity(product.id, false)}>-</Button>
+                  <Button onClick={() => handleChangeQuantity(product._id, false)}>-</Button>
                   <Text className="quantity">{product.quantity}</Text>
-                  <Button onClick={() => handleChangeQuantity(product.id, true)}>+</Button>
+                  <Button onClick={() => handleChangeQuantity(product._id, true)}>+</Button>
                 </div>
                 <Text strong>Price: ${(product.price * product.quantity).toFixed(2)}</Text>
-                <Button type="primary" danger onClick={() => handleRemove(product.id)}>
+                <Button type="primary" danger onClick={() => handleRemove(product._id)}>
                   Remove
                 </Button>
               </Col>

@@ -33,16 +33,15 @@ const Navbar = () => {
       </div>
       <div className="nav-icons">
         <Link href="/cart">
-          <Badge count={totalItems} offset={[10, 0]} size="small">
-            <FaShoppingCart size={24} />
-          </Badge>
+          <div className="icon-wrapper">
+            <Badge count={totalItems} offset={[10, 0]} size="small">
+              <FaShoppingCart size={24} />
+            </Badge>
+          </div>
         </Link>
-        <FaSignOutAlt
-          size={24}
-          className="icon"
-          onClick={handleLogout}
-          style={{ cursor: 'pointer', marginLeft: '10px' }}
-        />      
+        <div className="icon-wrapper" onClick={handleLogout}>
+          <FaSignOutAlt size={24} style={{ cursor: 'pointer' }} />
+        </div>
       </div>
     </Header>
   );
