@@ -1,32 +1,29 @@
 'use client';
-import { Form, Input, Button, Checkbox, message } from 'antd';
+import { Form, Input, Button, Checkbox, message, Typography } from 'antd';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
+const { Title } = Typography;
 
 export default function SignUp() {
+  const router = useRouter();
+
   const onFinish = async (values: any) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/signup', values);
-      message.success('Sign Up Successful!');
-      console.log('Response:', response.data);
+      const res = await axios.post('http://localhost:8800/api/users/register', values);
+      message.success(res.data.message);
+
+      // Redirect to login page after successful registration
+      router.push('/login');
     } catch (error) {
       message.error('Sign Up Failed!');
-      console.error('Error:', error);
     }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
   return (
-    <div style={{ maxWidth: 400, margin: '0 auto', padding: '20px' }}>
-      <h1 style={{color:"#000000"}}>Sign Up</h1>
-      <Form
-        name="signup"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
+    <div style={{ maxWidth: 400, margin: '0 auto', padding: '20px', textAlign: 'center' }}>
+      <Title level={2} style={{ color: "#000" }}>Sign Up</Title>
+      <Form name="signup" initialValues={{ remember: true }} onFinish={onFinish}>
         <Form.Item
           name="username"
           rules={[{ required: true, message: 'Please input your username!' }]}
@@ -73,14 +70,17 @@ export default function SignUp() {
         </Form.Item>
 
         <Form.Item name="agreement" valuePropName="checked">
-          <Checkbox>
-            I have read the <a href="">agreement</a>
+          <Checkbox style={{textAlign: 'left'}}>
+            I have read the <a href="#">agreement</a>
           </Checkbox>
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" block>
             Sign Up
+          </Button>
+          <Button type="link" onClick={() => router.push('/login')}>
+            Already have an account? Log In
           </Button>
         </Form.Item>
       </Form>

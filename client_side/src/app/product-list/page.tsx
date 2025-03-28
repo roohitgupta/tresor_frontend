@@ -2,7 +2,12 @@
 
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import ProductPage from '../../components/ProductPage';
+import dynamic from 'next/dynamic';
+import withAuth from '@/withAuth';
+
+const ProductPage = dynamic(() => import('../../components/ProductPage'), {
+  ssr: false
+});
 
 const ProductListPage = () => {
   return (
@@ -13,4 +18,4 @@ const ProductListPage = () => {
   );
 };
 
-export default ProductListPage;
+export default withAuth(ProductListPage);

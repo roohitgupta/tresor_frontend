@@ -3,6 +3,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import CartPage from '../../components/Cart';
+import withAuth from '@/withAuth';
 
 const Cart = () => {
   return (
@@ -13,4 +14,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default withAuth(Cart);
