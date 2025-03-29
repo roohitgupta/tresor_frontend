@@ -3,7 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Col, Row, Input, Pagination, Spin, Button, Typography, Modal, Form, message } from 'antd';
+import Card from 'antd/es/card';
+import Col from 'antd/es/col';
+import Row from 'antd/es/row';
+import Input from 'antd/es/input';
+import Pagination from 'antd/es/pagination';
+import Spin from 'antd/es/spin';
+import Button from 'antd/es/button';
+import Typography from 'antd/es/typography';
+import Modal from 'antd/es/modal';
+import Form from 'antd/es/form';
+import message from 'antd/es/message';
 import './Style.css';
 import { addProduct, initializeCart } from '../redux/cartSlice';
 import { RootState } from '../redux/store';

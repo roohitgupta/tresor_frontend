@@ -4,7 +4,11 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
 import { removeProduct, changeQuantity, initializeCart } from '../redux/cartSlice';
-import { Card, Row, Col, Button, Typography } from 'antd';
+import Card from 'antd/es/card';
+import Row from 'antd/es/row';
+import Col from 'antd/es/col';
+import Button from 'antd/es/button';
+import Typography from 'antd/es/typography';
 import './Style.css';
 
 const { Title, Text } = Typography;

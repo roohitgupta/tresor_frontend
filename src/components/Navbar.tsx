@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Layout, Badge } from 'antd';
+import Layout from 'antd/es/layout';
+import Badge from 'antd/es/badge';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { FaShoppingCart, FaSignOutAlt } from 'react-icons/fa'; // Importing icons from 'react-icons/fa'

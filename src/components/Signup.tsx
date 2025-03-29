@@ -1,5 +1,10 @@
 'use client';
-import { Form, Input, Button, Checkbox, message, Typography } from 'antd';
+import Form from 'antd/es/form';
+import Input from 'antd/es/input';
+import Button from 'antd/es/button';
+import Checkbox from 'antd/es/checkbox';
+import message from 'antd/es/message';
+import Typography from 'antd/es/typography';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
