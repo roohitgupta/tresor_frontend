@@ -10,7 +10,7 @@ export default function SignUp() {
 
   const onFinish = async (values: any) => {
     try {
-      const res = await axios.post('http://localhost:8800/api/users/register', values);
+      const res = await axios.post('https://tresor-backend-1.onrender.com/api/users/register', values);
       message.success(res.data.message);
 
       // Redirect to login page after successful registration

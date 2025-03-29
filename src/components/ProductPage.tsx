@@ -52,7 +52,7 @@ export default function ProductPage() {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get('http://localhost:8800/api/products');
+      const { data } = await axios.get('https://tresor-backend-1.onrender.com/api/products');
       const filteredData = data.filter((product: any) =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -91,10 +91,10 @@ export default function ProductPage() {
   const handleCreateOrUpdateProduct = async (values: any) => {
     try {
       if (currentProduct) {
-        await axios.put(`http://localhost:8800/api/products/${currentProduct._id}`, values);
+        await axios.put(`https://tresor-backend-1.onrender.com/api/products/${currentProduct._id}`, values);
         message.success('Product updated successfully');
       } else {
-        await axios.post('http://localhost:8800/api/products', values);
+        await axios.post('https://tresor-backend-1.onrender.com/api/products', values);
         message.success('Product created successfully');
       }
       fetchProducts();
@@ -111,7 +111,7 @@ export default function ProductPage() {
 
   const handleDeleteProduct = async (_id: string) => {
     try {
-      await axios.delete(`http://localhost:8800/api/products/${_id}`);
+      await axios.delete(`https://tresor-backend-1.onrender.com/api/products/${_id}`);
       message.success('Product deleted successfully');
       fetchProducts();
     } catch (error) {

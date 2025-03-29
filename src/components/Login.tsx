@@ -10,7 +10,7 @@ export default function Login() {
 
   const onFinish = async (values: any) => {
     try {
-      const res = await axios.post('http://localhost:8800/api/users/login', values);
+      const res = await axios.post('https://tresor-backend-1.onrender.com/api/users/login', values);
       message.success('Login Successful!');
       localStorage.setItem('token', res.data.token); 
 
