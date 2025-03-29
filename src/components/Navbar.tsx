@@ -28,9 +28,7 @@ const Navbar = () => {
     <Header className="navbar">
       <div className="logo">LOGO</div>
       <div className="nav-links">
-        <Link href="/">Home</Link>
         <Link href="/product-list">Products</Link>
-        <Link href="/options">Options</Link>
       </div>
       <div className="nav-icons">
         <Link href="/cart">
